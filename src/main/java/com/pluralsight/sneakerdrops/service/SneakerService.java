@@ -81,10 +81,22 @@ public class SneakerService {
         return sneakerRepository.save(sneaker);
     }
 
-    public Sneaker updatePrice(long id, double price) {
-        Sneaker sneaker = byId(id);
-        sneaker.setPrice(price);
-        return sneakerRepository.save(sneaker);
+//    public Sneaker updatePrice(long id, double price) {
+//        Sneaker sneaker = byId(id);
+//        sneaker.setPrice(price);
+//        return sneakerRepository.save(sneaker);
+//    }
+
+    public Sneaker updateSneaker(long id, Sneaker updated) {
+        Sneaker existing = byId(id);
+        if (existing == null)
+            return null;
+
+        existing.setModel(updated.getModel());
+        existing.setReleaseYear(updated.getReleaseYear());
+        // set all of them not done
+
+        return sneakerRepository.save(existing);
     }
 
     public void deleteSneaker(long id) {
