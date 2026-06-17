@@ -87,4 +87,9 @@ public class SneakerService {
         }
         sneakerRepository.deleteById(id);
     }
+
+    private Brand resolveBrand(Sneaker sneaker) {
+        if (sneaker.getBrand() == null || sneaker.getBrand().getId() == null) return null;
+        return brandRepository.findById(sneaker.getBrand().getId()).orElse(null);
+    }
 }
