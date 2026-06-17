@@ -93,8 +93,9 @@ public class SneakerService {
             return null;
 
         existing.setModel(updated.getModel());
+        existing.setPrice(updated.getPrice());
         existing.setReleaseYear(updated.getReleaseYear());
-        // set all of them not done
+        existing.setBrand(resolveBrand(updated));
 
         return sneakerRepository.save(existing);
     }
