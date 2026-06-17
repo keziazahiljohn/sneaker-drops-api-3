@@ -39,4 +39,15 @@ public class SneakerController {
         Sneaker sneaker1 = sneakerService.createSneaker(sneaker);
         return ResponseEntity.status(HttpStatus.CREATED).body(sneaker1);
     }
+
+    @PutMapping("/{id}")
+    public Sneaker update(@PathVariable long id, @RequestBody Sneaker sneaker) {
+        return sneakerService.updateSneaker(id, sneaker);
+    }
+
+    @DeleteMapping("{/id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        sneakerService.deleteSneaker(id);
+        return ResponseEntity.noContent().build();
+    }
 }

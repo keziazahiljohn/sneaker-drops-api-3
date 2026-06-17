@@ -99,10 +99,14 @@ public class SneakerService {
         return sneakerRepository.save(existing);
     }
 
-    public void deleteSneaker(long id) {
-        if (!sneakerRepository.existsById(id)) {
-            throw new NotFoundException("No sneaker with id " + id);
-        }
+//    public void deleteSneaker(long id) {
+//        if (!sneakerRepository.existsById(id)) {
+//            throw new NotFoundException("No sneaker with id " + id);
+//        }
+//        sneakerRepository.deleteById(id);
+//    }
+
+    public void deleteSneaker(long id){
         sneakerRepository.deleteById(id);
     }
 
